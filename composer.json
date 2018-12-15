@@ -1,0 +1,27 @@
+{
+    "name": "buchin/termapi-client",
+    "description": "Client for Term API",
+    "type": "library",
+    "require-dev": {
+        "kahlan/kahlan": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mochammad Masbuchin",
+            "email": "buchin@dropsugar.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Buchin\\TermapiClient\\": "src/"
+        },
+        "files": [
+            "functions/recent_terms.php",
+            "functions/popular_terms.php",
+            "functions/insert_term.php"
+        ]
+    }
+}
