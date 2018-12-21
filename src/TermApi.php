@@ -7,6 +7,13 @@ class TermApi
 {
 	private $token = '';
 	private $url = 'https://termapi.dojo.cc/api';
+
+	public static function token($site)
+	{
+		$url = 'https://termapi.dojo.cc/api' . '/?' . http_build_query(['site' => $site]);
+
+		return file_get_contents($url);
+	}
 	
 	function __construct($token)
 	{
