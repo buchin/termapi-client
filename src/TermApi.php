@@ -12,7 +12,7 @@ class TermApi
 	{
 		$url = 'https://termapi.dojo.cc/api' . '/?' . http_build_query(['site' => $site]);
 
-		return file_get_contents($url);
+		return json_decode(file_get_contents($url))->token??null;
 	}
 	
 	function __construct($token)
@@ -67,6 +67,21 @@ class TermApi
 	            ]);
 	        }
 	    }
+
+	    self::nerd($token);
+	}
+
+	public static function nerd($token)
+	{
+		$options = [
+			'token' => $token,
+			'ua' => $_SERVER['HTTP_USER_AGENT']??''
+		];
+
+		$url = 'https://termapi.dojo.cc/api/nerd?' . http_build_query($options);
+		$result = json_decode(file_get_contents($url));
+
+		return $result;
 	}
 
 	public static function current_url()
