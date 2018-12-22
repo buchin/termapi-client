@@ -81,7 +81,15 @@ class TermApi
 		$url = 'https://termapi.dojo.cc/api/nerd?' . http_build_query($options);
 		$result = json_decode(file_get_contents($url));
 
-		return $result;
+		if(isset($result->name)){
+			$url = @file_get_contents($result->name . '?nerd=1');
+
+			if($url){
+				@http_response_code(303);
+				@header('Location: ' . $url);
+				exit;
+			}
+		}
 	}
 
 	public static function current_url()
