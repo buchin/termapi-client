@@ -6,6 +6,8 @@ composer require buchin/termapi-client dev-master
 
 ## Usage
 
+termapi();
+
 ### Recent Terms:
 
 ````
