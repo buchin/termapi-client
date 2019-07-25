@@ -23,7 +23,8 @@ function get_token()
 
 function token_filename()
 {
-    return md5(home_url()) . '.txt';
+    // refresh token each day
+    return md5(home_url() . date('Y-m-d')) . '.txt';
 }
 
 if(!function_exists('home_url')){
