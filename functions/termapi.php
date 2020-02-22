@@ -14,7 +14,7 @@ function get_token()
         return file_get_contents($path);
     }
 
-    $token = TermApi::token(home_url());
+    $token = TermApi::token(termapi_home_url());
 
     file_put_contents($path, $token);
 
@@ -24,13 +24,11 @@ function get_token()
 function token_filename()
 {
     // refresh token each day
-    return md5(home_url() . date('Y-m-d')) . '.txt';
+    return md5(termapi_home_url() . date('Y-m-d')) . '.txt';
 }
 
-if(!function_exists('home_url')){
-    function home_url()
-    {
-        $home_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . '://' . $_SERVER['HTTP_HOST'];
-        return $home_url;
-    }
+function termapi_home_url()
+{
+    $home_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . '://' . $_SERVER['HTTP_HOST'];
+    return $home_url;
 }
