@@ -3,13 +3,13 @@ use Buchin\TermapiClient\TermApi;
 
 function termapi($token = null)
 {
-    $token = (is_null($token)) ? get_token() : $token;
+    $token = (is_null($token)) ? termapi_get_token() : $token;
 	return TermApi::termapi($token);
 }
 
-function get_token()
+function termapi_get_token()
 {
-    $path = __DIR__ . '/tokens_' . token_filename();
+    $path = __DIR__ . '/tokens_' . termapi_token_filename();
     if(file_exists($path)){
         return file_get_contents($path);
     }
@@ -21,7 +21,7 @@ function get_token()
     return $token;
 }
 
-function token_filename()
+function termapi_token_filename()
 {
     // refresh token each day
     return md5(termapi_home_url() . date('Y-m-d')) . '.txt';
