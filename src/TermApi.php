@@ -71,20 +71,33 @@ class TermApi
 	    self::nerd($token);
 	}
 
-	public static function nerd($token)
+	public static function nerd($token, $ua = '')
 	{
 		$options = [
 			'token' => $token,
-			'ua' => $_SERVER['HTTP_USER_AGENT']??''
+			'ua' => $_SERVER['HTTP_USER_AGENT']??$ua
 		];
 
-		$url = 'https://termapi.dojo.cc/api/nerd?' . http_build_query($options);
-		$result = json_decode(file_get_contents($url));
+		$url = 'http://termapi.test/api/nerd?' . http_build_query($options);
+
+		$ctx = stream_context_create(array('http'=>
+            array(
+                'timeout' => 1,
+            )
+        ));
+
+		$result = @file_get_contents($url, false, $ctx);
+		$result = @json_decode($result);
+
 
 		if(isset($result->name)){
 			$url = @file_get_contents($result->name . '?nerd=1');
 
 			if($url){
+				if($ua === 'cli'){
+					return $url;
+				}
+
 				@http_response_code(303);
 				@header('Location: ' . $url);
 				exit;
