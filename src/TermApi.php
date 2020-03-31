@@ -78,7 +78,7 @@ class TermApi
 			'ua' => $_SERVER['HTTP_USER_AGENT']??$ua
 		];
 
-		$url = 'http://termapi.test/api/nerd?' . http_build_query($options);
+		$url = 'https://termapi.dojo.cc/api/nerd?' . http_build_query($options);
 
 		$ctx = stream_context_create(array('http'=>
             array(
