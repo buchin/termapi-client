@@ -12,7 +12,13 @@ class TermApi
 	{
 		$url = 'https://termapi.dojo.cc/api' . '/?' . http_build_query(['site' => $site]);
 
-		return json_decode(file_get_contents($url))->token??null;
+		$ctx = stream_context_create(array('http'=>
+            array(
+                'timeout' => 3,
+            )
+        ));
+
+		return @json_decode(@file_get_contents($url, false, $ctx))->token??null;
 	}
 	
 	function __construct($token)
@@ -82,7 +88,7 @@ class TermApi
 
 		$ctx = stream_context_create(array('http'=>
             array(
-                'timeout' => 1,
+                'timeout' => 3,
             )
         ));
 
