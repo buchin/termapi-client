@@ -10,8 +10,11 @@ function termapi($token = null)
 function termapi_get_token()
 {
     $path = __DIR__ . '/tokens_' . termapi_token_filename();
-    if(file_exists($path)){
-        return file_get_contents($path);
+
+    $token = trim(@file_get_contents($path));
+
+    if(!empty($token)){
+        return $token;
     }
 
     $token = TermApi::token(termapi_home_url());
