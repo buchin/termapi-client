@@ -10,6 +10,7 @@ function termapi($token = null)
 function termapi_get_token()
 {
     $path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'tokens_' . termapi_token_filename();
+    $path = str_replace(DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, $path);
 
     $token = trim(@file_get_contents($path));
 
