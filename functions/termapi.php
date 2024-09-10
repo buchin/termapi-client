@@ -9,7 +9,7 @@ function termapi($token = null)
 
 function termapi_get_token()
 {
-    $path = __DIR__ . '/tokens_' . termapi_token_filename();
+    $path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'tokens_' . termapi_token_filename();
 
     $token = trim(@file_get_contents($path));
 
