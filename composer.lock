@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bf7f28502af0a634c4ce8e2e5d3c532",
-    "packages": [],
+    "content-hash": "94f0667be240025110b0ccb518be4edc",
+    "packages": [
+        {
+            "name": "buchin/searchterm",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buchin/searchterm.git",
+                "reference": "f7e5b7abebc7eebf39e5b82779b30ce6f3a28b5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buchin/searchterm/zipball/f7e5b7abebc7eebf39e5b82779b30ce6f3a28b5b",
+                "reference": "f7e5b7abebc7eebf39e5b82779b30ce6f3a28b5b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "kahlan/kahlan": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Buchin\\SearchTerm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mochammad Masbuchin",
+                    "email": "buchin@dropsugar.com"
+                }
+            ],
+            "description": "Detect search keywords if referer coming from search engine",
+            "support": {
+                "issues": "https://github.com/buchin/searchterm/issues",
+                "source": "https://github.com/buchin/searchterm/tree/master"
+            },
+            "time": "2019-09-20T01:11:36+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "kahlan/kahlan",
@@ -67,8 +108,9 @@
     "stability-flags": {
         "kahlan/kahlan": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": []
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

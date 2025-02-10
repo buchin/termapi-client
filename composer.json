@@ -13,9 +13,6 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "buchin/searchterm": "dev-master"
-    },
     "autoload": {
         "psr-4": {
             "Buchin\\TermapiClient\\": "src/"
@@ -26,5 +23,8 @@
             "functions/insert_term.php",
             "functions/termapi.php"
         ]
+    },
+    "require": {
+        "buchin/searchterm": "^1.0"
     }
 }
