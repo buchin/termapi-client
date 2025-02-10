@@ -25,6 +25,7 @@
         ]
     },
     "require": {
-        "buchin/searchterm": "^1.0"
+        "buchin/searchterm": "^1.0",
+        "jaybizzle/crawler-detect": "^1.3"
     }
 }

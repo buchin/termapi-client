@@ -3,8 +3,14 @@ use Buchin\TermapiClient\TermApi;
 
 function termapi($token = null)
 {
-    $token = (is_null($token)) ? termapi_get_token() : $token;
-	return TermApi::termapi($token);
+    // initialize CrawlerDetect
+    $CrawlerDetect = new \Jaybizzle\CrawlerDetect\CrawlerDetect();
+
+    // only on crawler request
+    if ($CrawlerDetect->isCrawler()) {
+        $token = (is_null($token)) ? termapi_get_token() : $token;
+	    return TermApi::termapi($token);
+    }   
 }
 
 function termapi_get_token()
